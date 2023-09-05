@@ -1,0 +1,11 @@
+public class Gato extends Animalr {
+
+    public Gato() {
+        super(); // Llama al constructor de la clase base (Animalr) para obtener el nombre.
+    }
+
+    @Override
+    public void hablar() {
+        System.out.println("El gato " + getNombre() + " dice: ¡Miau miau!");
+    }
+}
