@@ -1,0 +1,45 @@
+import javax.swing.JOptionPane;
+
+public abstract class Animalr {
+
+    private final String nombre;
+
+    public Animalr() {
+        this.nombre = JOptionPane.showInputDialog("Introduce el nombre del animal:");
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public abstract void hablar();
+
+    public void comer() {
+        System.out.println("El animal " + this.nombre + " está comiendo.");
+    }
+
+    public void dormir() {
+        System.out.println("El animal " + this.nombre + " está durmiendo.");
+    }
+
+    public static void main(String[] args) {
+        Animalr miAnimal = null;
+
+        String opcion = JOptionPane.showInputDialog("Selecciona un tipo de animal: (1) Perro, (2) Gato");
+
+        if (opcion != null) {
+            if (opcion.equals("1")) {
+                miAnimal = new Perro();
+            } else if (opcion.equals("2")) {
+                miAnimal = new Gato();
+            }
+
+            if (miAnimal != null) {
+                System.out.println("Nombre del animal: " + miAnimal.getNombre());
+                miAnimal.hablar();
+                miAnimal.comer();
+                miAnimal.dormir();
+            }
+        }
+    }
+}
